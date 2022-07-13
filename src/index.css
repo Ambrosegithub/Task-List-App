@@ -93,7 +93,6 @@ body {
 .completedButton {
   float: right;
   background-color: inherit;
-  border: 2px solid blue;
   padding-right: 6px;
 }
 
@@ -120,4 +119,9 @@ body {
 
 #edith {
   float: right;
+}
+
+h1 {
+  align-self: center;
+  text-align: center;
 }
