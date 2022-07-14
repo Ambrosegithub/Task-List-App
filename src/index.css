@@ -12,6 +12,10 @@ body {
   background-image: linear-gradient(#ec4899, #8b5cf6, #ec4899);
 }
 
+li {
+  list-style: none;
+}
+
 #to-do-form {
   display: flex;
   justify-content: space-around;
@@ -109,6 +113,10 @@ body {
   pointer-events: none;
 }
 
+input[type=checkbox]:checked + .todoListItem {
+  text-decoration: line-through;
+}
+
 #clear {
   color: #f5f5f5;
   font-size: 20px;
@@ -124,4 +132,13 @@ body {
 h1 {
   align-self: center;
   text-align: center;
+}
+
+#elipsi {
+  border: 2px solid red;
+  padding: 10px;
+}
+
+.icons {
+  border: 1px solid blue;
 }

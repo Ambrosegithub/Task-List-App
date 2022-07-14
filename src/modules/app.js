@@ -8,7 +8,7 @@ class TodoList {
       this.populateLocalStorage();
       this.displayTask();
     }
-  
+
     removeTask = (index) => {
       this.taskLiskArr = this.taskLiskArr.filter((task) => task.index !== index);
       this.updateIndex();
@@ -32,11 +32,14 @@ class TodoList {
           <input type='checkbox' class='check' id="${i}">
           <li class='todoListItem'>${this.taskLiskArr[i].description}</li>
           <div class="icons"
-          <i class="fa-solid fa-ellipsis-vertical"></i>
+          <i class="fa-solid fa-ellipsis-vertical" id='elipsi'></i>
           <i class="fa-solid fa-trash-can" data-index=${i + 1}></i>
           </div>
           </div>
           `;
+          
+          todo+= editButton;
+
     }
     const deleteBtn = document.querySelectorAll('.fa-trash-can');
     deleteBtn.forEach((button) => {
@@ -46,16 +49,36 @@ class TodoList {
       });
     });
   }
-  
+
+
   markCompled = (index) => {
     this.taskLiskArr[index].completed = !this.taskLiskArr[index].completed;
     this.populateLocalStorage();
   }
-  
+
+ 
   populateLocalStorage = () => {
     localStorage.setItem('taskstore', JSON.stringify(this.taskLiskArr))
   }
   
   }
-  
-  export default TodoList
+  /*
+  let editButton = document.createElement('li');
+    editButton.className = 'btn-success btn btn-sm float-right edit';
+  editButton.innerText= 'Edit';
+  let editItem= null;
+    editItem.target.parentNode[i].data
+    = document.getElementById("toDoInputList").value;
+    if (e.target.classList.contains("edit")) {
+      document.getElementById("toDoInputList").value =
+          e.target.parentNode.childNodes[0].data;
+      submit.value = "EDIT";
+      editItem = e;
+  }
+  */
+  /*
+  if (taskLiskArr[i].completed) {
+    document.querySelectorAll('.Check').checked = true;
+  }
+  */
+  export default TodoList;
