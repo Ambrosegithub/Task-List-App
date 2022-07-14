@@ -1,18 +1,16 @@
 import './index.css';
-import taskLiskArr from './modules/app.js';
-// import { displayTask } from './modules/storage.js';
-const toDoInputList = document.getElementById('toDoInputList');
-const displayTask = () => {
-  let task = '';
-  for (let i = 0; i < taskLiskArr.length; i += 1) {
-    const tasklList = `<div class='todo-div'>
-        <input type='checkbox' class='check' ${taskLiskArr[i].completed}>
-        <li class='todoListItem'>${taskLiskArr[i].description}</li>
-        <button class='completedButton'><i id="vertical-dots" class="fa-solid fa-ellipsis-vertical"></i></button>
-        <button class='trash-btn'><i id="trash-bin" class="fa-solid fa-trash-can"></i></button></div>
-        `;
-    task += tasklList;
+import TodoList from './modules/app.js';
+
+const taskstore = new TodoList();
+
+const textInput = document.querySelector("#addtolist");
+
+textInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter' && textInput.value) {
+    e.preventDefault();
+    taskstore.addTask(textInput.value);
+    textInput.value = null;
   }
-  toDoInputList.innerHTML = task;
-};
-displayTask();
+});
+window.addEventListener('load', taskstore.displayTask);
+
