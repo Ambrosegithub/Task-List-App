@@ -1,4 +1,4 @@
-const taskLiskArr = [
+/* const taskLiskArr = [
   {
     description: 'go to the church',
     completed: false,
@@ -21,3 +21,5 @@ const taskLiskArr = [
   },
 ];
 export default taskLiskArr;
+*/
+
