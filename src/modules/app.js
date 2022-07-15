@@ -49,6 +49,19 @@ class TodoList {
          this.removeTask(id);
        });
      });
+
+     const checkboxes = document.querySelectorAll('input[type=checkbox]');
+     checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', (event) => {
+        const inputField = event.target.parentNode.querySelector('li');
+        const ellipsis = event.target.parentNode.parentNode.querySelector('.fa-ellipsis-vertical');
+        const trashCan = event.target.parentNode.parentNode.querySelector('.fa-trash-can');
+        inputField.classList.toggle('line-through');
+        trashCan.classList.toggle('d-none');
+        ellipsis.classList.toggle('d-none');
+        this.markCompleted(parseInt(event.target.id, 10))
+      });
+     });
    }
 
   markCompled = (index) => {
