@@ -108,13 +108,18 @@ li {
   display: none;
 }
 
-#vertical-dots,
-#trash-bin {
-  pointer-events: none;
+.d-none {
+  display: none;
 }
 
-input[type=checkbox]:checked + .todoListItem {
+.line-through {
   text-decoration: line-through;
+  color: red;
+}
+
+.fa {
+  color: #4e4e4e;
+  margin-right: 10px;
 }
 
 #clear {
@@ -132,13 +137,4 @@ input[type=checkbox]:checked + .todoListItem {
 h1 {
   align-self: center;
   text-align: center;
-}
-
-#elipsi {
-  border: 2px solid red;
-  padding: 10px;
-}
-
-.icons {
-  border: 1px solid blue;
 }

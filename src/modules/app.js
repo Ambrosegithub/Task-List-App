@@ -7,7 +7,7 @@ class TodoList {
       this.taskLiskArr.push({
         description: item,
         completed: false,
-        index: this.taskLiskArr.length + 1,
+        index: this.taskLiskArr.length + 1
       });
       this.populateLocalStorage();
       this.displayTask();
@@ -36,8 +36,8 @@ class TodoList {
           <li class='todoListItem' contenteditable="true"
           >${this.taskLiskArr[i].description}</li>
           <div class="icons"
-          <i class="fa-solid fa-ellipsis-vertical" id='elipsi'></i>
-          <i class="fa-solid fa-trash-can" data-index=${i + 1}></i>
+          <i class="fa fa-ellipsis-v></i>
+          <i class="fa-solid fa-trash-can d-none" data-index=${i + 1}></i>
           </div>
           </div>
           `;
@@ -48,6 +48,19 @@ class TodoList {
          const id = parseInt(event.target.getAttribute('data-index'), 10);
          this.removeTask(id);
        });
+     });
+
+     const checkboxes = document.querySelectorAll('input[type=checkbox]');
+     checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', (event) => {
+        const inputField = event.target.parentNode.querySelector('li');
+        const ellipsis = event.target.parentNode.parentNode.querySelector('.fa-ellipsis-vertical');
+        const trashCan = event.target.parentNode.parentNode.querySelector('.fa-trash-can');
+        inputField.classList.toggle('line-through');
+        trashCan.classList.toggle('d-none');
+        ellipsis.classList.toggle('d-none');
+        this.markCompleted(parseInt(event.target.id, 10))
+      });
      });
    }
 
