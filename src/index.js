@@ -1,5 +1,6 @@
 import './index.css';
 import TodoList from './modules/app.js';
+import { clearAll, cleartodos } from './modules/clear.js';
 
 const taskstore = new TodoList();
 
@@ -13,3 +14,5 @@ textInput.addEventListener('keypress', (e) => {
   }
 });
 window.addEventListener('load', taskstore.displayTask);
+
+clearAll.addEventListener('click', () => { cleartodos(taskstore); });
