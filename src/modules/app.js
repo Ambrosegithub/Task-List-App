@@ -31,9 +31,9 @@ class TodoList {
           <div class="todo-div">
           <div class="todos">
           <input type="checkbox" name="" id="${i}">
-          <p>${this.taskArr[i].description}</p>
+          <p contenteditable=true>${this.taskArr[i].description}</p>
           </div>
-          <div class="icons"
+          <div class="icons">
           <i class="fa-solid fa-ellipsis-vertical" id='elipsi'></i>
           <i class="fa-solid fa-trash-can d-none" data-index=${i + 1}></i>
           </div>
