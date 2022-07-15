@@ -1,10 +1,14 @@
 class TodoList {
-    constructor() {
-      this.taskLiskArr = JSON.parse(localStorage.getItem('taskstore')) || [];
-    }
-  
+  constructor() {
+    this.taskLiskArr = JSON.parse(localStorage.getItem('taskstore')) || [];
+  }
+
     addTask = (item) => {
-      this.taskLiskArr.push({ description: item, completed: false, index: this.taskLiskArr.length + 1});
+      this.taskLiskArr.push({
+        description: item,
+        completed: false,
+        index: this.taskLiskArr.length + 1,
+      });
       this.populateLocalStorage();
       this.displayTask();
     }
@@ -15,70 +19,46 @@ class TodoList {
       this.populateLocalStorage();
       this.displayTask();
     }
-  
+
     updateIndex = () => {
       this.taskLiskArr = this.taskLiskArr.map((task, index) => {
-          task.index = index + 1;
-          return task;
-      })
+        task.index = index + 1;
+        return task;
+      });
     }
-  
-    
+
    displayTask = () => {
-    const todo = document.querySelector('#toDoInputList');
-    todo.innerHTML = '';
-    for (let i = 0; i < this.taskLiskArr.length; i += 1) {
-      todo.innerHTML += `<div class='todo-div'>
+     const todo = document.querySelector('#toDoInputList');
+     todo.innerHTML = '';
+     for (let i = 0; i < this.taskLiskArr.length; i += 1) {
+       todo.innerHTML += `<div class='todo-div'>
           <input type='checkbox' class='check' id="${i}">
-          <li class='todoListItem'>${this.taskLiskArr[i].description}</li>
+          <li class='todoListItem' contenteditable="true"
+          >${this.taskLiskArr[i].description}</li>
           <div class="icons"
           <i class="fa-solid fa-ellipsis-vertical" id='elipsi'></i>
           <i class="fa-solid fa-trash-can" data-index=${i + 1}></i>
           </div>
           </div>
           `;
-          
-          todo+= editButton;
-
-    }
-    const deleteBtn = document.querySelectorAll('.fa-trash-can');
-    deleteBtn.forEach((button) => {
-      button.addEventListener('click', (event) => {
-        const id  = parseInt(event.target.getAttribute('data-index'), 10)
-        this.removeTask(id);
-      });
-    });
-  }
-
+     }
+     const deleteBtn = document.querySelectorAll('.fa-trash-can');
+     deleteBtn.forEach((button) => {
+       button.addEventListener('click', (event) => {
+         const id = parseInt(event.target.getAttribute('data-index'), 10);
+         this.removeTask(id);
+       });
+     });
+   }
 
   markCompled = (index) => {
     this.taskLiskArr[index].completed = !this.taskLiskArr[index].completed;
     this.populateLocalStorage();
   }
 
- 
   populateLocalStorage = () => {
-    localStorage.setItem('taskstore', JSON.stringify(this.taskLiskArr))
+    localStorage.setItem('taskstore', JSON.stringify(this.taskLiskArr));
   }
-  
-  }
-  /*
-  let editButton = document.createElement('li');
-    editButton.className = 'btn-success btn btn-sm float-right edit';
-  editButton.innerText= 'Edit';
-  let editItem= null;
-    editItem.target.parentNode[i].data
-    = document.getElementById("toDoInputList").value;
-    if (e.target.classList.contains("edit")) {
-      document.getElementById("toDoInputList").value =
-          e.target.parentNode.childNodes[0].data;
-      submit.value = "EDIT";
-      editItem = e;
-  }
-  */
-  /*
-  if (taskLiskArr[i].completed) {
-    document.querySelectorAll('.Check').checked = true;
-  }
-  */
-  export default TodoList;
+}
+
+export default TodoList;

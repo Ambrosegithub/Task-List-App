@@ -3,7 +3,7 @@ import TodoList from './modules/app.js';
 
 const taskstore = new TodoList();
 
-const textInput = document.querySelector("#addtolist");
+const textInput = document.querySelector('#addtolist');
 
 textInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter' && textInput.value) {
@@ -13,4 +13,3 @@ textInput.addEventListener('keypress', (e) => {
   }
 });
 window.addEventListener('load', taskstore.displayTask);
-
