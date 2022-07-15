@@ -31,7 +31,7 @@ class TodoList {
           <div class="todo-div">
           <div class="todos">
           <input type="checkbox" name="" id="${i}">
-          <p contenteditable=true>${this.taskArr[i].description}</p>
+          <p contenteditable=>${this.taskArr[i].description}</p>
           </div>
           <div class="icons">
           <i class="fa-solid fa-ellipsis-vertical" id='elipsi'></i>
@@ -50,15 +50,15 @@ class TodoList {
 
      const checkboxes = document.querySelectorAll('input[type=checkbox]');
      checkboxes.forEach((checkbox) => {
-      checkbox.addEventListener('change', (event) => {
-        const inputField = event.target.parentNode.querySelector('p');
-        const ellipsis = event.target.parentNode.parentNode.querySelector('.fa-ellipsis-vertical');
-        const trashCan = event.target.parentNode.parentNode.querySelector('.fa-trash-can');
-        inputField.classList.toggle('line-through');
-        trashCan.classList.toggle('d-none');
-        ellipsis.classList.toggle('d-none');
-        this.markCompleted(parseInt(event.target.id, 10))
-      });
+       checkbox.addEventListener('change', (event) => {
+         const inputField = event.target.parentNode.querySelector('p');
+         const ellipsis = event.target.parentNode.parentNode.querySelector('.fa-ellipsis-vertical');
+         const trashCan = event.target.parentNode.parentNode.querySelector('.fa-trash-can');
+         inputField.classList.toggle('line-through');
+         trashCan.classList.toggle('d-none');
+         ellipsis.classList.toggle('d-none');
+         this.markCompleted(parseInt(event.target.id, 10));
+       });
      });
    }
 
