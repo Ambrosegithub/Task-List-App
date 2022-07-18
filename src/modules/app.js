@@ -1,4 +1,3 @@
-
 class TodoList {
   constructor() {
     this.taskArr = JSON.parse(localStorage.getItem('taskstore')) || [];
@@ -74,4 +73,3 @@ class TodoList {
 }
 
 export default TodoList;
- main
