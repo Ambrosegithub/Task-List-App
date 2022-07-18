@@ -1,20 +1,19 @@
 import './index.css';
+import TodoList from './modules/app.js';
+import { clearAll, cleartodos } from './modules/clear.js';
 
+const taskstore = new TodoList();
 
-// import { displayTask } from './modules/storage.js';
+const textInput = document.querySelector('#addtolist');
 
-// const toDoInputList = document.getElementById('toDoInputList');
-// const displayTask = () => {
-//   let task = '';
-//   for (let i = 0; i < taskLiskArr.length; i += 1) {
-//     const tasklList = `<div class='todo-div'>
-//         <input type='checkbox' class='check' ${taskLiskArr[i].completed}>
-//         <li class='todoListItem'>${taskLiskArr[i].description}</li>
-//         <button class='completedButton'><i id="vertical-dots" class="fa-solid fa-ellipsis-vertical"></i></button>
-//         <button class='trash-btn'><i id="trash-bin" class="fa-solid fa-trash-can"></i></button></div>
-//         `;
-//     task += tasklList;
-//   }
-//   toDoInputList.innerHTML = task;
-// };
-// displayTask();
+textInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter' && textInput.value) {
+    e.preventDefault();
+    taskstore.addTask(textInput.value);
+    textInput.value = null;
+  }
+});
+window.addEventListener('load', taskstore.displayTask);
+
+clearAll.addEventListener('click', () => { cleartodos(taskstore); });
+ main
