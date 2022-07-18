@@ -125,6 +125,12 @@ body {
 
 .line-through {
   text-decoration: line-through;
+  color: red;
+}
+
+.fa {
+  color: #4e4e4e;
+  margin-right: 10px;
 }
 
 .fa {
