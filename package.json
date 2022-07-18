@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/Ambrosegithub/Task-List-App/issues"
   },
-  "homepage": "https://github.com/Ambrosegithub/Task-List-App#readme",
+  "homepage": "https://github.com/Ambrosegithub/Task-List-App",
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@babel/preset-env": "^7.18.6",
