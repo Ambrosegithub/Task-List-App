@@ -137,6 +137,10 @@ body {
   font-size: 20px;
   text-align: center;
   margin-top: 20%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #edith {
