@@ -12,6 +12,7 @@ Javascript
 The amazing tecnologies for this project are:
 Linters,
 git
+test: jest.
  ## How to  make a copy of this project(clone):
  Visit our github url listed below
  search project(repo name)
